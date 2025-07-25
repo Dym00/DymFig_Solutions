@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DymFig Solutions - Site Profissional</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Swiper.js CSS CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- Configuração de Cores e Fontes -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-primary': '#D946EF', // Tom de rosa/roxo vibrante
+                        'brand-secondary': '#581C87', // Tom de roxo escuro
+                        'brand-dark': '#0f172a', // Um azul-escuro quase preto
+                        'brand-light': '#F9FAFB',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <style>
+      /* Estilo para os elementos antes de serem animados */
+      .reveal {
+        opacity: 0;
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Customização das setas e paginação do carrossel */
+      .portfolio-carousel .swiper-button-next,
+      .portfolio-carousel .swiper-button-prev {
+        color: #D946EF; /* Cor brand-primary */
+      }
+      .portfolio-carousel .swiper-pagination-bullet-active {
+        background-color: #D946EF; /* Cor brand-primary */
+      }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-300 font-sans">
+
+    <!-- 1. HEADER & NAVEGAÇÃO -->
+    <header class="bg-brand-dark/80 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-800">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">
+                DYMFIG <span class="text-brand-primary">SOLUTIONS</span>
+            </a>
+            <!-- Menu Desktop -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#sobre" class="hover:text-brand-primary transition-colors duration-300">Sobre Nós</a>
+                <a href="#servicos" class="hover:text-brand-primary transition-colors duration-300">Serviços</a>
+                <a href="#portfolio" class="hover:text-brand-primary transition-colors duration-300">Portfólio</a>
+                <a href="#contato" class="bg-brand-primary text-white font-bold py-2 px-5 rounded-lg hover:scale-105 transition-transform duration-300">Fale Conosco</a>
+            </div>
+            <!-- Botão do Menu Mobile -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Menu Mobile (Dropdown) -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#sobre" class="block py-2 px-6 text-sm hover:bg-gray-800">Sobre Nós</a>
+            <a href="#servicos" class="block py-2 px-6 text-sm hover:bg-gray-800">Serviços</a>
+            <a href="#portfolio" class="block py-2 px-6 text-sm hover:bg-gray-800">Portfólio</a>
+            <a href="#contato" class="block py-2 px-6 text-sm hover:bg-gray-800">Contato</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 2. SEÇÃO PRINCIPAL (HERO) -->
+        <section id="home" class="container mx-auto px-6 py-24 md:py-32 text-center">
+            <h2 class="text-4xl md:text-6xl font-extrabold text-white leading-tight animate-fade-in-up">
+                Tecnologia que <span class="text-brand-primary">Resolve, Agiliza e Economiza</span>.
+            </h2>
+            <p class="mt-6 text-lg max-w-3xl mx-auto text-gray-400 animate-fade-in-up" style="animation-delay: 0.2s;">
+                Desenvolvemos soluções inovadoras e sob medida que transformam o seu negócio. Do site ao sistema de automação, estamos aqui para impulsionar seus resultados.
+            </p>
+            <div class="mt-10 flex justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.4s;">
+                <a href="#servicos" class="bg-brand-primary text-white font-bold py-3 px-8 rounded-lg hover:scale-105 transition-transform duration-300">Conheça Nossos Serviços</a>
+                <a href="#portfolio" class="bg-gray-700 text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-600 transition-all">Veja Nossos Projetos</a>
+            </div>
+        </section>
+
+        <!-- 3. SEÇÃO DE SERVIÇOS -->
+        <section id="servicos" class="py-20 bg-gray-900/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white">Nossas Soluções para o seu Negócio</h3>
+                    <p class="text-gray-400 mt-3 max-w-2xl mx-auto">Soluções completas, da criação da sua presença digital à otimização de processos internos com tecnologia de ponta.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Serviço 1 -->
+                    <div class="bg-brand-dark p-8 rounded-lg border border-gray-800 hover:border-brand-primary hover:-translate-y-2 transition-all duration-300 reveal">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-brand-primary mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                        <h4 class="text-xl font-bold text-white">Desenvolvimento de Sites</h4>
+                        <p class="mt-2 text-gray-400">Criamos sites, e-commerces e landing pages de alta performance, com foco em conversão e experiência do usuário.</p>
+                    </div>
+                    <!-- Serviço 2 -->
+                    <div class="bg-brand-dark p-8 rounded-lg border border-gray-800 hover:border-brand-primary hover:-translate-y-2 transition-all duration-300 reveal">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-brand-primary mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V3m0 18v-3M5.636 5.636l-1.414-1.414m15.556 0l-1.414 1.414M19.778 19.778l-1.414-1.414M5.636 18.364l-1.414 1.414" /></svg>
+                        <h4 class="text-xl font-bold text-white">Automação de Processos</h4>
+                        <p class="mt-2 text-gray-400">Otimizamos suas tarefas diárias para você focar no que realmente importa, reduzindo custos e aumentando a eficiência.</p>
+                    </div>
+                    <!-- Serviço 3 -->
+                    <div class="bg-brand-dark p-8 rounded-lg border border-gray-800 hover:border-brand-primary hover:-translate-y-2 transition-all duration-300 reveal">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-brand-primary mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                        <h4 class="text-xl font-bold text-white">Dashboards & AI Agents</h4>
+                        <p class="mt-2 text-gray-400">Transformamos dados em insights e criamos agentes inteligentes para potencializar suas decisões estratégicas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SEÇÃO SOBRE NÓS -->
+        <section id="sobre" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row gap-12 items-center reveal">
+                    <div class="md:w-1/2">
+                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">Uma Parceria Estratégica para sua <span class="text-brand-primary">Empresa</span></h3>
+                        <p class="text-gray-400 mb-4 leading-relaxed">
+                            Somos uma empresa de tecnologia focada em desenvolver soluções inovadoras, acessíveis e eficazes. Unimos conhecimento técnico e visão de mercado para criar ferramentas que realmente fazem a diferença no dia a dia do seu negócio.
+                        </p>
+                        <p class="text-gray-400 leading-relaxed">
+                           Nosso compromisso é com a agilidade, qualidade e resultados. Atuamos lado a lado com cada cliente, entendendo sua realidade para desenhar soluções sob medida.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="space-y-8">
+                            <!-- Time Member 1 -->
+                            <div class="flex items-center gap-4">
+                                <img src="https://placehold.co/80x80/1f2937/d946ef?text=ESF" alt="Foto de Eduardo Soares Figueiredo" class="w-20 h-20 rounded-full flex-shrink-0 border-2 border-brand-primary">
+                                <div>
+                                    <h5 class="font-bold text-white text-lg">Eduardo Soares Figueiredo</h5>
+                                    <p class="text-sm text-brand-primary">Fundador (CEO) & Desenvolvedor Full Stack</p>
+                                </div>
+                            </div>
+                            <!-- Time Member 2 -->
+                            <div class="flex items-center gap-4">
+                                <img src="https://placehold.co/80x80/1f2937/d946ef?text=DBF" alt="Foto de Dymitri Bonifácio Ferreira" class="w-20 h-20 rounded-full flex-shrink-0 border-2 border-brand-primary">
+                                <div>
+                                    <h5 class="font-bold text-white text-lg">Dymitri Bonifácio Ferreira</h5>
+                                    <p class="text-sm text-brand-primary">Diretor de Operações (COO) & Desenvolvedor Full Stack</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SEÇÃO DE PORTFÓLIO (CARROSSEL) -->
+        <section id="portfolio" class="py-20 bg-gray-900/50">
+            <div class="container mx-auto px-6 relative">
+                <div class="text-center mb-16 reveal">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white">Projetos que Geram Resultados</h3>
+                    <p class="text-gray-400 mt-3 max-w-2xl mx-auto">Conheça alguns dos desafios que transformamos em sucesso para nossos clientes.</p>
+                </div>
+                
+                <!-- Swiper Carrossel -->
+                <div class="swiper portfolio-carousel reveal">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="bg-brand-dark rounded-lg overflow-hidden group transition-all duration-300 max-w-xl mx-auto">
+                                <img src="https://placehold.co/600x400/1f2937/ffffff?text=Projeto+1" alt="Imagem do Projeto 1" class="w-full h-64 object-cover">
+                                <div class="p-8">
+                                    <h4 class="text-2xl font-bold text-white">Sistema de E-commerce</h4>
+                                    <p class="text-gray-400 mt-2">Desenvolvimento de plataforma de vendas online para empresa de varejo.</p>
+                                    <div class="mt-4">
+                                        <span class="inline-block bg-gray-700 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">PHP</span>
+                                        <span class="inline-block bg-gray-700 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">JavaScript</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div class="bg-brand-dark rounded-lg overflow-hidden group transition-all duration-300 max-w-xl mx-auto">
+                                <img src="https://placehold.co/600x400/1f2937/ffffff?text=Projeto+2" alt="Imagem do Projeto 2" class="w-full h-64 object-cover">
+                                <div class="p-8">
+                                    <h4 class="text-2xl font-bold text-white">Dashboard de Marketing</h4>
+                                    <p class="text-gray-400 mt-2">Criação de dashboard interativo para análise de campanhas de Meta Ads.</p>
+                                    <div class="mt-4">
+                                        <span class="inline-block bg-gray-700 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Looker Studio</span>
+                                        <span class="inline-block bg-gray-700 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">SQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <div class="bg-brand-dark rounded-lg overflow-hidden group transition-all duration-300 max-w-xl mx-auto">
+                                <img src="https://placehold.co/600x400/1f2937/ffffff?text=Projeto+3" alt="Imagem do Projeto 3" class="w-full h-64 object-cover">
+                                <div class="p-8">
+                                    <h4 class="text-2xl font-bold text-white">Automação de Atendimento</h4>
+                                    <p class="text-gray-400 mt-2">Implementação de sistema de chamados integrado ao WhatsApp.</p>
+                                    <div class="mt-4">
+                                        <span class="inline-block bg-gray-700 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">API</span>
+                                        <span class="inline-block bg-gray-700 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Automação</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Paginação -->
+                    <div class="swiper-pagination mt-8 !relative"></div>
+                </div>
+                <!-- Setas de Navegação -->
+                <div class="swiper-button-prev -left-4 md:-left-2"></div>
+                <div class="swiper-button-next -right-4 md:-right-2"></div>
+            </div>
+        </section>
+
+        <!-- 6. SEÇÃO DE CONTATO -->
+        <section id="contato" class="py-20">
+            <div class="container mx-auto px-6 reveal">
+                <div class="text-center mb-12">
+                     <h3 class="text-3xl md:text-4xl font-bold text-white">Vamos Decolar o seu Negócio?</h3>
+                     <p class="text-gray-400 mt-3 max-w-2xl mx-auto">Preencha o formulário abaixo ou entre em contato diretamente. Estamos prontos para ouvir sobre seu projeto.</p>
+                </div>
+                <div class="max-w-2xl mx-auto bg-gray-900/50 p-8 rounded-lg border border-gray-800">
+                    <form action="#" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="text-sm font-bold text-gray-400">Nome</label>
+                            <input type="text" name="name" id="name" class="mt-2 w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition">
+                        </div>
+                        <div>
+                            <label for="email" class="text-sm font-bold text-gray-400">Email</label>
+                            <input type="email" name="email" id="email" class="mt-2 w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition">
+                        </div>
+                         <div>
+                            <label for="message" class="text-sm font-bold text-gray-400">Mensagem</label>
+                            <textarea name="message" id="message" rows="4" class="mt-2 w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-brand-primary text-white font-bold py-3 px-10 rounded-lg hover:scale-105 transition-transform duration-300 w-full">Enviar Mensagem</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- FOOTER -->
+    <footer class="bg-gray-900/50 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
+            <p class="font-bold text-lg text-white mb-2">DYMFIG SOLUTIONS</p>
+            <div class="flex justify-center space-x-6 mb-4">
+                 <a href="mailto:contato.dymfig@gmail.com" class="hover:text-brand-primary">contato.dymfig@gmail.com</a>
+                 <a href="tel:+5511969299924" class="hover:text-brand-primary">(11) 96929-9924</a>
+            </div>
+            <p class="text-sm">&copy; 2025 DymFig Solutions. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Swiper.js JS CDN -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Lógica para o menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Lógica para animação de scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach(el => observer.observe(el));
+
+        // Inicialização do Swiper (Carrossel)
+        const swiper = new Swiper('.portfolio-carousel', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 30,
+            
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+</body>
+</html>
